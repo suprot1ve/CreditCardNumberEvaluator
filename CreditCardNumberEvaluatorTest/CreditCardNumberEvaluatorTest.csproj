@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CorrectCardNumberTests.cs" />
+    <Compile Include="GetCardInfoTests.cs" />
     <Compile Include="LuhnAlgorithmTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
