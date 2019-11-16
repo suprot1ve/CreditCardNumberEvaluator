@@ -1,4 +1,5 @@
-﻿using CreditCardNumberEvaluator.Validation;
+﻿using CreditCardNumberEvaluator;
+using CreditCardNumberEvaluator.Validation;
 using NUnit.Framework;
 using System.Collections.Generic;
 
@@ -6,6 +7,12 @@ namespace CreditCardNumberEvaluatorTest
 {
 	class LuhnAlgorithmTests
 	{
+
+		private CardNumberEvaluator _evaluator;
+
+		[SetUp]
+		public void SetUp() => _evaluator = new CardNumberEvaluator();
+
 		[Test]
 		public void SampleDataTest()
 		{
@@ -16,10 +23,8 @@ namespace CreditCardNumberEvaluatorTest
 			data.Add("5212132012291762", false);
 			data.Add("6210948000000029", true);
 
-			ICardValidator validator = new LuhnAlgorithm();
-
 			foreach (var d in data)
-				Assert.AreEqual(validator.IsValid(d.Key), d.Value);
+				Assert.AreEqual(_evaluator.IsValidCardNumber(d.Key), d.Value);
 
 		}
 	}

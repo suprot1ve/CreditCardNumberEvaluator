@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace CreditCardNumberEvaluator.Validation
 {
+	/// <summary>
+	/// Simple implementation of Luhn algorithm(https://en.wikipedia.org/wiki/Luhn_algorithm)
+	/// </summary>
 	public class LuhnAlgorithm : ICardValidator
 	{
 		public bool IsValid(string cardNumber) => IsValid(cardNumber.Select(n => (int)Char.GetNumericValue(n)));

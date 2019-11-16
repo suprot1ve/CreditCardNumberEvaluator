@@ -3,10 +3,17 @@ using System.Net;
 
 namespace CreditCardNumberEvaluator.API.Binlist
 {
-	class BinlistApi : IApi<CardInfo>
+	/// <summary>
+	/// A implementation of the IApi interface for working with Binlist.net(https://lookup.binlist.net)
+	/// </summary>
+	public class BinlistApi : IApi<CardInfo>
 	{
 		private const string _url = "https://lookup.binlist.net";
 
+		/// <summary>
+		/// Returns the card information from binlist.net
+		/// </summary>
+		/// <param name="urn">The card number</param>
 		public CardInfo GetData(string urn) => JSONHelper.GetCardInfoFromJSON(GetJsonData(urn));
 
 		private string GetJsonData(string urn)
